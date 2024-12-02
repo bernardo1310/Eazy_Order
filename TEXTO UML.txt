@@ -1,0 +1,88 @@
+@startuml
+class UsuarioCliente {
+ -String Usuario
+ -int CPF
+ -String Senha
+ +boolean login()
+}
+
+class UsuarioEmpresa {
+ -String NomeEmpresa
+ -String CNPJ
+ -String Senha
+ #Relatorio relatorio
+ #List<Produto> produtos
+ +boolean cadastro()
+}
+
+class Pedido {
+ -int NumeroPedido
+ -Date Data
+ -String Status
+ #Carrinho carrinho
+ #Endereco endereco
+ #Entrega entrega
+ #CategoriaProduto catProd
+ -double valProd()
+}
+
+
+class formaPagamento {
+ -double valorTotal
+ -String Metodo
+ +double Pagamento()
+}
+
+class Produto {
+ -List<Produto> produtos
+ -List<Produto> carrinho
+ -String Nome
+ -double Preco
+ -String Descricao
+ +String InfoDados()
+}
+
+class Endereco {
+ -String Rua
+ -String Numero
+ -String Cidade
+ -String Estado
+ -String CEP
+ +String localizacao()
+}
+
+class PagamentoOnline {
+ -String Cartao
+ -String Validade
+ -String CVV
+ #formaPagamento formaPagamento
+ #Desconto desconto
+ +boolean pago()
+}
+
+class Desconto {
+ -String Codigo
+ -double Porcentagem
+}
+
+class Avaliacao {
+ -int Nota
+ -String Comentario
+}
+
+class Entrega {
+ -int Status
+ -Date PrevisaoEntrega
+}
+
+Pedido o.. Avaliacao
+Entrega --* Pedido
+Pedido *-- Endereco
+PagamentoOnline --|> formaPagamento
+PagamentoOnline --o Desconto
+formaPagamento --* Pedido
+UsuarioEmpresa *-- Produto
+Produto --* Pedido
+UsuarioCliente *-- Pedido
+
+@enduml
