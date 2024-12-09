@@ -1,8 +1,12 @@
 package Trabalho_Final;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Produto {
 	List<Produto> produtos = new ArrayList<Produto>();
-	private int Carrinho;
-	public void setCarrinho(int carrinho) {
+	private List<Produto> Carrinho;
+	public void setCarrinho1(List<Produto> carrinho) {
 		Carrinho = carrinho;
 	}
 	private String Nome;
@@ -15,10 +19,10 @@ public class Produto {
 		this.produtos = produtos;
 	}
 	public List<Produto> getCarrinho() {
-		return carrinho;
+		return Carrinho;
 	}
 	public void setCarrinho(List<Produto> carrinho) {
-		this.carrinho = carrinho;
+		this.Carrinho = carrinho;
 	}
 	public String getNome() {
 		return Nome;
