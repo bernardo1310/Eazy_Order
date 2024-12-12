@@ -14,6 +14,7 @@ public class Main {
 		UsuarioCliente cliente = new UsuarioCliente();
 		UsuarioEmpresa empresa = new UsuarioEmpresa();
 		int usuarioEmpresa=0, usuarioCliente=1;
+		String
 		
 		System.out.println("BEM-VINDO AO EAZY ORDER!");
 		System.out.println("Você deseja fazer um login como:");
@@ -21,7 +22,11 @@ public class Main {
 		int usuario = read.nextInt();
 		
 		if(usuario==usuarioEmpresa) {
+			System.out.println("--------------------------------------------------------------------------");
+			System.out.println("Precisamos de algumas informações para poder liberar seu acesso: ");
 			
+			empresa.validarUsuario();
+
 		} else if(usuario==usuarioCliente) {
 			
 		}
