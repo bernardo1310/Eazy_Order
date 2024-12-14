@@ -1,34 +1,36 @@
-package Trabalho_Final;
-import java.util.Scanner;
-public class Main {
-	public static void main(String[] args) {
-		Scanner read= new Scanner(System.in);
-		Avaliacao avaliacao = new Avaliacao();
-		Desconto desconto = new Desconto();
-		Endereco endereco = new Endereco();
-		Entrega statusPedido = new Entrega();
-		formaPagamento tipoPagamento = new formaPagamento();
-		PagamentoOnline pagOnline = new PagamentoOnline();
-		Pedido pedido = new Pedido();
-		Produto produto = new Produto();
-		UsuarioCliente cliente = new UsuarioCliente();
-		UsuarioEmpresa empresa = new UsuarioEmpresa();
-		int usuarioEmpresa=0, usuarioCliente=1;
-		String
-		
-		System.out.println("BEM-VINDO AO EAZY ORDER!");
-		System.out.println("Você deseja fazer um login como:");
-		System.out.println("Empresa: 0  |  Cliente:  1");
-		int usuario = read.nextInt();
-		
-		if(usuario==usuarioEmpresa) {
-			System.out.println("--------------------------------------------------------------------------");
-			System.out.println("Precisamos de algumas informações para poder liberar seu acesso: ");
-			
-			empresa.validarUsuario();
+package SistemaPedidos;
 
-		} else if(usuario==usuarioCliente) {
-			
-		}
-	}
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int opcao;
+
+        do {
+            System.out.println("---------------------------------------------------------");
+            System.out.println("----------- Bem vindo ao EAZY ORDER -----------");
+            System.out.println("---------------------------------------------------------");
+            System.out.println("Deseja realizar o login como:");
+            System.out.println("0 - EMPRESA   1 - CLIENTE");
+            System.out.print("Escolha uma opção: ");
+            opcao = scanner.nextInt();
+
+            switch (opcao) {
+                case 0:
+                    UsuarioEmpresa empresa = new UsuarioEmpresa();
+                    empresa.login();
+                    break;
+                case 1:
+                    UsuarioCliente cliente = new UsuarioCliente();
+                    cliente.login();
+                    break;
+                case 2:
+                    System.out.println("\nSaindo do sistema. Até logo!");
+                    break;
+                default:
+                    System.out.println("\nOpção inválida. Tente novamente.");
+            }
+        } while (opcao != 2);
+    }
 }
