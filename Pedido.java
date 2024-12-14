@@ -1,25 +1,31 @@
-package Trabalho_Final;
+package SistemaPedidos;
+
+import java.util.Date;
+
 public class Pedido {
-	private int NumeroPedido;
-	private String Data;
-	private String Status;
-	public int getNumeroPedido() {
-		return NumeroPedido;
-	}
-	public void setNumeroPedido(int numeroPedido) {
-		NumeroPedido = numeroPedido;
-	}
-	public String getData() {
-		return Data;
-	}
-	public void setData(String data) {
-		Data = data;
-	}
-	public String getStatus() {
-		return Status;
-	}
-	public void setStatus(String status) {
-		Status = status;
-	}
-	
+    private int numeroPedido;
+    private Date data;
+    private String status;
+
+    public Pedido(int numeroPedido, Date data, String status) {
+        this.numeroPedido = numeroPedido;
+        this.data = data;
+        this.status = status;
+    }
+
+    public int getNumeroPedido() {
+        return numeroPedido;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void atualizarStatus(String novoStatus) {
+        this.status = novoStatus;
+    }
 }

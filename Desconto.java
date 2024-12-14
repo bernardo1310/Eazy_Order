@@ -1,18 +1,11 @@
-package Trabalho_Final;
+package SistemaPedidos;
+
 public class Desconto {
-	private String codigo;
-	private double Porcentagem;
-	public String getCodigo() {
-		return codigo;
-	}
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
-	}
-	public double getPorcentagem() {
-		return Porcentagem;
-	}
-	public void setPorcentagem(double porcentagem) {
-		Porcentagem = porcentagem;
-	}
-	
+    private String codigo;
+    private double porcentagem;
+
+    public Desconto(String codigo, double porcentagem) {
+        this.codigo = codigo;
+        this.porcentagem = porcentagem;
+    }
 }
