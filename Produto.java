@@ -1,46 +1,35 @@
-package Trabalho_Final;
-
-import java.util.ArrayList;
-import java.util.List;
+package SistemaPedidos;
 
 public class Produto {
-	List<Produto> produtos = new ArrayList<Produto>();
-	private List<Produto> Carrinho;
-	public void setCarrinho1(List<Produto> carrinho) {
-		Carrinho = carrinho;
-	}
-	private String Nome;
-	private double Preco;
-	private String Descricao;
-	public List<Produto> getProdutos() {
-		return produtos;
-	}
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
-	}
-	public List<Produto> getCarrinho() {
-		return Carrinho;
-	}
-	public void setCarrinho(List<Produto> carrinho) {
-		this.Carrinho = carrinho;
-	}
-	public String getNome() {
-		return Nome;
-	}
-	public void setNome(String nome) {
-		Nome = nome;
-	}
-	public double getPreco() {
-		return Preco;
-	}
-	public void setPreco(double preco) {
-		Preco = preco;
-	}
-	public String getDescricao() {
-		return Descricao;
-	}
-	public void setDescricao(String descricao) {
-		Descricao = descricao;
-	}
-	
+    private int id;
+    private String nome;
+    private double preco;
+    private String descricao;
+
+    public Produto(int id, String nome, double preco, String descricao) {
+        this.id = id;
+        this.nome = nome;
+        this.preco = preco;
+        this.descricao = descricao;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public String getInfo() {
+        return nome + " - R$ " + preco + "\nDescrição: " + descricao;
+    }
 }
