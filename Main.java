@@ -8,29 +8,32 @@ public class Main {
         int opcao;
 
         do {
-            System.out.println("---------------------------------------------------------");
+            System.out.println("\n---------------------------------------------------------");
             System.out.println("----------- Bem vindo ao EAZY ORDER -----------");
             System.out.println("---------------------------------------------------------");
             System.out.println("Deseja realizar o login como:");
-            System.out.println("0 - EMPRESA   1 - CLIENTE");
+            System.out.println("0 - EMPRESA");
+            System.out.println("1 - CLIENTE");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
 
             switch (opcao) {
                 case 0:
-                    UsuarioEmpresa empresa = new UsuarioEmpresa();
-                    empresa.login();
+                    UsuarioEmpresa usuarioEmpresa = new UsuarioEmpresa();
+                    usuarioEmpresa.login();
                     break;
                 case 1:
-                    UsuarioCliente cliente = new UsuarioCliente();
-                    cliente.login();
+                    UsuarioCliente usuarioCliente = new UsuarioCliente();
+                    usuarioCliente.menu();
                     break;
                 case 2:
-                    System.out.println("\nSaindo do sistema. Até logo!");
+                    System.out.println("Saindo do sistema...");
                     break;
                 default:
-                    System.out.println("\nOpção inválida. Tente novamente.");
+                    System.out.println("Opção inválida. Tente novamente.");
             }
         } while (opcao != 2);
+
+        scanner.close();
     }
 }
