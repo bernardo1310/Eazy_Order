@@ -3,40 +3,31 @@ package SistemaPedidos;
 import java.util.Scanner;
 
 public class Sistema {
-    private Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-    public void iniciar() {
-        int opcao;
-        do {
-            exibirTelaInicial();
-            opcao = scanner.nextInt();
+        while (true) {
+            System.out.println("---------------------------------------------------------");
+            System.out.println("----------- Bem-vindo ao EAZY ORDER -----------");
+            System.out.println("---------------------------------------------------------");
+            System.out.println("Deseja realizar o login como:");
+            System.out.println("0 - EMPRESA   1 - CLIENTE");
+            System.out.print("Escolha uma opção: ");
 
-            switch (opcao) {
-                case 0:
-                    UsuarioEmpresa empresa = new UsuarioEmpresa();
-                    empresa.login();
-                    break;
-                case 1:
-                    UsuarioCliente cliente = new UsuarioCliente();
-                    cliente.login();
-                    break;
-                case 2:
-                    System.out.println("\nSaindo do sistema. Até logo!");
-                    break;
-                default:
-                    System.out.println("\nOpção inválida. Tente novamente.");
+            int opcao = scanner.nextInt();
+            scanner.nextLine(); // Limpa o buffer
+
+            if (opcao == 0) {
+                // Login como empresa
+                UsuarioEmpresa usuarioEmpresa = new UsuarioEmpresa();
+                usuarioEmpresa.login();
+            } else if (opcao == 1) {
+                // Login como cliente
+                UsuarioCliente usuarioCliente = new UsuarioCliente();
+                usuarioCliente.menu();
+            } else {
+                System.out.println("Opção inválida. Tente novamente.");
             }
-        } while (opcao != 2);
-    }
-
-    private void exibirTelaInicial() {
-        System.out.println("---------------------------------------------------------");
-        System.out.println("------------      BEM-VINDO AO EAZY ORDER     -----------");
-        System.out.println("---------------------------------------------------------");
-        System.out.println("REALIZE SEU LOGIN PARA PROSSEGUIR");
-        System.out.println("USUÁRIO EMPRESA  - 0");
-        System.out.println("USUÁRIO CLIENTE  - 1");
-        System.out.println("SAIR             - 2");
-        System.out.print("Escolha uma opção: ");
+        }
     }
 }
